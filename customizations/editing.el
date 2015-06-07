@@ -1,4 +1,38 @@
+
+
 ;; Customizations relating to editing a buffer.
+
+(global-set-key (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "M-h") 'backward-kill-word)
+(global-set-key (kbd "M-k") 'kill-whole-line)
+
+
+
+;; company-mode setup
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-idle-delay 0)
+
+
+
+;;setup line duplication
+(defun duplicate-current-line (&optional n)
+      "duplicate current line, make more than 1 copy given a numeric argument"
+      (interactive "p")
+      (save-excursion
+        (let ((nb (or n 1))
+    	  (current-line (thing-at-point 'line)))
+          ;; when on last line, insert a newline first
+          (when (or (= 1 (forward-line 1)) (eq (point) (point-max)))
+    	(insert "\n"))
+    
+          ;; now insert as many time as requested
+          (while (> n 0)
+    	(insert current-line)
+    	(decf n)))))
+    
+
+(global-set-key (kbd "C-S-d") 'duplicate-current-line)
+
 
 ;; Key binding to use "hippie expand" for text autocompletion
 ;; http://www.emacswiki.org/emacs/HippieExpand
@@ -24,7 +58,10 @@
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
-
+(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-C-<down>") 'shrink-window)
+(global-set-key (kbd "S-C-<up>") 'enlarge-window)
 ;; Don't use hard tabs
 (setq-default indent-tabs-mode nil)
 
