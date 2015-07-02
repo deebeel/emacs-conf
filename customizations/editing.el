@@ -7,13 +7,6 @@
 (global-set-key (kbd "M-k") 'kill-whole-line)
 
 
-
-;; company-mode setup
-(add-hook 'after-init-hook 'global-company-mode)
-(setq company-idle-delay 0)
-
-
-
 ;;setup line duplication
 (defun duplicate-current-line (&optional n)
       "duplicate current line, make more than 1 copy given a numeric argument"
