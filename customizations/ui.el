@@ -13,13 +13,6 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
-(global-nlinum-mode)
-(setq nlinum-format "%d")
-(add-hook 'nlinum-mode-hook
-          (lambda ()
-            (setq nlinum--width
-              (length (number-to-string
-                       (count-lines (point-min) (point-max)))))))
 
 (toggle-truncate-lines)
 
@@ -30,7 +23,7 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'granger t)
+(load-theme 'darcula t)
 
 (set-face-attribute 'default nil :height 140)
 
