@@ -5,7 +5,10 @@
 (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
 (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook (lambda ()
+                                        (paredit-mode)
+                                        (global-unset-key (kbd "C-j"))
+                                        (define-key lisp-interaction-mode-map (kbd "M-j") 'eval-print-last-sexp)))
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 
 ;; eldoc-mode shows documentation in the minibuffer when writing code
