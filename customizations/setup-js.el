@@ -6,6 +6,7 @@
 			      (setq js2-include-jslint-globals nil)
 			      (setq js2-include-rhino-externs nil)))
 (add-hook 'js2-mode-hook (lambda ()
+			   (rainbow-delimiters-mode t)
                            (tern-mode t)
 			   (js2-refactor-mode t)
                            (subword-mode t)

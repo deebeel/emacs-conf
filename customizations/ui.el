@@ -7,12 +7,10 @@
 (set-terminal-coding-system             'utf-8)
 (prefer-coding-system                   'utf-8)
 
-(powerline-default-theme)
 
 (blink-cursor-mode 0)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-
 
 (toggle-truncate-lines)
 

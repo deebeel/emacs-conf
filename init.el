@@ -6,7 +6,6 @@
 
 (defvar required-packages  
   '(
-    powerline
     key-chord
     expand-region
     nlinum
@@ -32,6 +31,7 @@
     coffee-mode
     json-mode
     js2-mode
+    company-tern
     js2-refactor))
 
 (unless package-archive-contents
@@ -73,7 +73,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (js2-refactor js2-mode json-mode coffee-mode cider clojure-mode-extra-font-locking clojure-mode flycheck-rust racer rust-mode paredit magit neotree company s rainbow-delimiters projectile smex ido-ubiquitous flycheck highlight-indentation nlinum expand-region key-chord powerline))))
+    (company-tern smex rainbow-delimiters racer projectile powerline paredit nlinum neotree magit key-chord json-mode js2-refactor ido-ubiquitous highlight-indentation flycheck-rust expand-region coffee-mode clojure-mode-extra-font-locking cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
