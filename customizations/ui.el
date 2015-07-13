@@ -7,8 +7,6 @@
 (set-terminal-coding-system             'utf-8)
 (prefer-coding-system                   'utf-8)
 
-(powerline-default-theme)
-
 (blink-cursor-mode 0)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -23,7 +21,7 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'darcula t)
+(load-theme 'waher t)
 
 (set-face-attribute 'default nil :height 140)
 

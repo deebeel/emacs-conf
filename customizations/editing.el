@@ -1,6 +1,34 @@
+(defun yasnippetp (x)
+  (string-match "yasnippet" x))
+
+(setq yas-snippet-dirs (list (concat "~/.emacs.d/elpa/" (car (cl-remove-if-not #'yasnippetp (directory-files "~/.emacs.d/elpa"))) "/snippets")))
+(yas-global-mode t)
+(defun yas-ido-expand ()
+  "Lets you select (and expand) a yasnippet key"
+  (interactive)
+    (let ((original-point (point)))
+      (while (and
+              (not (= (point) (point-min) ))
+              (not
+               (string-match "[[:space:]\n]" (char-to-string (char-before)))))
+        (backward-word 1))
+    (let* ((init-word (point))
+           (word (buffer-substring init-word original-point))
+           (list (yas-active-keys)))
+      (goto-char original-point)
+      (let ((key (remove-if-not
+                  (lambda (s) (string-match (concat "^" word) s)) list)))
+        (if (= (length key) 1)
+            (setq key (pop key))
+          (setq key (ido-completing-read "key: " list nil nil word)))
+        (delete-char (- init-word original-point))
+        (insert key)
+        (yas-expand)))))
+
+(define-key yas-minor-mode-map (kbd "M-p")     'yas-ido-expand)
 
 
-(global-rainbow-delimiters-mode t)
+(rainbow-delimiters-mode t)
 (show-paren-mode 1)
 
 (global-hl-line-mode 1)
