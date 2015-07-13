@@ -29,7 +29,7 @@
 
 
 (rainbow-delimiters-mode t)
-
+(paredit-mode t)
 (show-paren-mode 1)
 
 (global-hl-line-mode 1)
