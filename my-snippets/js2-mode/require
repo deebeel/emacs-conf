@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : require
+#key  : req
+# --
+var ${1:$(s-lower-camel-case yas-text)} = require("${1:sys}");

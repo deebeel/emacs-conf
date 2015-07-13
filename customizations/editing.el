@@ -1,4 +1,5 @@
 (setq yas-snippet-dirs (list
+			"~/.emacs.d/my-snippets/"
 			(concat "~/.emacs.d/elpa/"
 				(car (cl-remove-if-not (lambda (x) (string-match "yasnippet" x))
 				      (directory-files "~/.emacs.d/elpa"))) "/snippets")))

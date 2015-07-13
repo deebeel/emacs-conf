@@ -1,10 +1,12 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 (eval-after-load "js2-mode" (lambda ()
+			      (require 'js2-refactor)
 			      (setq js2-include-browser-externs nil)
 			      (setq js2-include-node-externs t)
 			      (setq js2-include-jslint-globals nil)
 			      (setq js2-include-rhino-externs nil)))
+
 (add-hook 'js2-mode-hook (lambda ()
 			   (rainbow-delimiters-mode t)
                            (tern-mode t)
