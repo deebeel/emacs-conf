@@ -1,7 +1,7 @@
-(defun yasnippetp (x)
-  (string-match "yasnippet" x))
-
-(setq yas-snippet-dirs (list (concat "~/.emacs.d/elpa/" (car (cl-remove-if-not #'yasnippetp (directory-files "~/.emacs.d/elpa"))) "/snippets")))
+(setq yas-snippet-dirs (list
+			(concat "~/.emacs.d/elpa/"
+				(car (cl-remove-if-not (lambda (x) (string-match "yasnippet" x))
+				      (directory-files "~/.emacs.d/elpa"))) "/snippets")))
 (yas-global-mode t)
 (defun yas-ido-expand ()
   "Lets you select (and expand) a yasnippet key"
