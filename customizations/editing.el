@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 (defun yasnippetp (x)
   (string-match "yasnippet" x))
 
@@ -31,7 +29,7 @@
 
 
 (rainbow-delimiters-mode t)
->>>>>>> 2f227c3a94942c618b7dc1855f1a35742e5e7db9
+
 (show-paren-mode 1)
 
 (global-hl-line-mode 1)
