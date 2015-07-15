@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name : callback
-#keys : cb
+#key : cb
 # --
 (${0:default err}, ${1:default res})=>{}

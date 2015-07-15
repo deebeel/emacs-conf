@@ -2,17 +2,17 @@
 			"~/.emacs.d/my-snippets/"
 			(concat "~/.emacs.d/elpa/"
 				(car (cl-remove-if-not #'(lambda (x) (string-match "yasnippet" x))
-				      (directory-files "~/.emacs.d/elpa"))) "/snippets")))
+                                                       (directory-files "~/.emacs.d/elpa"))) "/snippets")))
 (yas-global-mode t)
 (defun yas-ido-expand ()
   "Lets you select (and expand) a yasnippet key"
   (interactive)
-    (let ((original-point (point)))
-      (while (and
-              (not (= (point) (point-min) ))
-              (not
-               (string-match "[[:space:]\n]" (char-to-string (char-before)))))
-        (backward-word 1))
+  (let ((original-point (point)))
+    (while (and
+            (not (= (point) (point-min) ))
+            (not
+             (string-match "[[:space:]\n]" (char-to-string (char-before)))))
+      (backward-word 1))
     (let* ((init-word (point))
            (word (buffer-substring init-word original-point))
            (list (yas-active-keys)))
@@ -26,9 +26,18 @@
         (insert key)
         (yas-expand)))))
 
+(defun indent-buffer ()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+(key-chord-mode t)
+(key-chord-define-global "ff" #'indent-buffer)
+
+
+
 (define-key yas-minor-mode-map (kbd "M-p")     'yas-ido-expand)
+(define-key yas-minor-mode-map (kbd "M-[")     'yas-expand)
 
-
+(setq-default indent-tabs-mode nil)
 (rainbow-delimiters-mode t)
 (paredit-mode t)
 (show-paren-mode 1)
@@ -48,6 +57,7 @@
 
 
 (global-set-key (kbd "C-S-d") 'duplicate-current-line)
+(global-set-key (kbd "M-S-d") 'duplicate-current-line)
 (global-set-key (kbd "<C-tab>") 'company-complete)
 (global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
@@ -75,7 +85,7 @@
       (while (> n 0)
         (insert current-line)
         (decf n)))))
-    
+
 (setq hippie-expand-try-functions-list
       '(try-expand-dabbrev
         try-expand-dabbrev-all-buffers
