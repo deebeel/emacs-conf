@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : console-log
+#key : cse
+# --
+console.error($0)
