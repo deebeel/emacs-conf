@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : let-require
+#key  : lreq
+# --
+const ${1:$(s-lower-camel-case yas-text)} = require("${1:sys}");

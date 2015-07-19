@@ -20,7 +20,7 @@
     neotree
     magit
     whitespace
-    paredit
+    smartparens
     dash
     rust-mode
     racer
@@ -57,25 +57,14 @@
 (load "shell-integration.el")
 (load "navigation.el")
 (load "ui.el")
-(load "editing.el")
+
 (load "misc.el")
-(load "elisp-editing.el")
 (load "setup-js.el") 
 (load "setup-rust.el")
 (load "setup-json.el")
 (load "setup-coffee.el")
+(load "editing.el")
+(load "functions")
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (company-tern smex rainbow-delimiters racer projectile powerline paredit nlinum neotree magit key-chord json-mode js2-refactor ido-ubiquitous highlight-indentation flycheck-rust expand-region coffee-mode clojure-mode-extra-font-locking cider))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(load "global-keybinding.el")
+

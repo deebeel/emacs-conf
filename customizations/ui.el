@@ -11,8 +11,8 @@
 (blink-cursor-mode 0)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-
-(toggle-truncate-lines)
+(setq inhibit-startup-message t)
+(toggle-truncate-lines t)
 
 (setq-default frame-title-format "%b (%f)")
 

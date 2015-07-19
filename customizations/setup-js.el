@@ -3,6 +3,8 @@
 (eval-after-load "js2-mode" (lambda ()
 			      (require 'js2-refactor)
 			      (js2r-add-keybindings-with-prefix "C-c C-m")
+                              (setq js2-mode-show-parse-errors nil)
+                              (setq js2-mode-show-strict-warnings nil)
 			      (setq js2-include-browser-externs nil)
 			      (setq js2-include-node-externs t)
 			      (setq js2-include-jslint-globals nil)
@@ -15,14 +17,15 @@
                            (subword-mode t)
                            (flycheck-mode t)))
 
-(add-to-list 'company-backends 'company-tern)
+(eval-after-load "company-mode" (lambda ()
+				  (add-to-list 'company-backends 'company-tern)))
+
 (eval-after-load "flycheck-mode"
   '(progn
      (flycheck-add-mode 'javascript-eslint 'js2-mode)
      (setq-default 'flycheck-disabled-checkers
 		   (append flycheck-disabled-checkers
 			   '(javascript-jshint)))))
-
 
 (setq js-indent-level 2)
 
