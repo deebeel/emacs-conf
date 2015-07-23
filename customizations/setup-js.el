@@ -21,9 +21,9 @@
 				  (add-to-list 'company-backends 'company-tern)))
 
 (eval-after-load "flycheck-mode"
-  '(progn
+  (progn
      (flycheck-add-mode 'javascript-eslint 'js2-mode)
-     (setq-default 'flycheck-disabled-checkers
+     (setq-default flycheck-disabled-checkers
 		   (append flycheck-disabled-checkers
 			   '(javascript-jshint)))))
 

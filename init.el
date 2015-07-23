@@ -3,7 +3,9 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
-
+(setq load-prefer-newer t)
+(setq gc-cons-threshold 50000000)
+(setq large-file-warning-threshold 100000000)
 (defvar required-packages  
   '(
     key-chord
@@ -54,18 +56,18 @@
 (add-to-list 'load-path "~/.emacs.d/customizations")
 ;; Sets up exec-path-from-shell so that Emacs will use the correct
 ;; environment variables
-(load "shell-integration.el")
-(load "navigation.el")
-(load "ui.el")
+(load "shell-integration")
+(load "navigation")
+(load "ui")
 
-(load "misc.el")
-(load "setup-js.el") 
-(load "setup-rust.el")
-(load "setup-json.el")
-(load "setup-coffee.el")
-(load "editing.el")
+(load "misc")
+(load "setup-js") 
+(load "setup-rust")
+(load "setup-json")
+(load "setup-coffee")
+(load "editing")
 (load "functions")
-(load "keybinding.el")
+(load "keybinding")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -74,7 +76,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (undo-tree smex smartparens rainbow-delimiters racer projectile powerline paredit nlinum neotree magit key-chord json-mode js2-refactor ido-ubiquitous highlight-indentation flycheck-rust expand-region company-tern coffee-mode clojure-mode-extra-font-locking cider))))
+    (js2-refactor company-tern js2-mode json-mode coffee-mode cider clojure-mode-extra-font-locking clojure-mode flycheck-rust racer rust-mode smartparens magit neotree company s rainbow-delimiters projectile smex ido-ubiquitous flycheck highlight-indentation nlinum expand-region key-chord))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

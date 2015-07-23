@@ -20,10 +20,6 @@
                     (setq p2 (line-end-position)))))
     (kill-ring-save p1 p2)))
 
-(defun toggle-comment-on-line ()
-  (interactive)
-  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
-
 
 
 (defun yas-ido-expand ()
