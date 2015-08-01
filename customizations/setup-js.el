@@ -20,9 +20,8 @@
                            (subword-mode t)
                            (flycheck-mode t)))
 
-(eval-after-load "company-mode" (lambda ()
+(eval-after-load "company" (lambda ()
 				  (add-to-list 'company-backends 'company-tern)))
-(require 'flycheck)
 (eval-after-load "flycheck" (lambda ()
                              (progn
                                (flycheck-add-mode 'javascript-eslint 'js2-mode)

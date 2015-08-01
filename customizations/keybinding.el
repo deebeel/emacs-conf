@@ -28,7 +28,6 @@
 ;; (keyboard-translate ?\M-\S-f ?\H-f)
 (global-set-key (kbd "s-q")  #'indent-buffer)
 
-(global-set-key (kbd "C-p C-p") #'yas-ido-expand)
 (key-chord-define-global "pp" #'yas-ido-expand) 
 (global-set-key (kbd "C-o") #'ido-find-file)
 (global-set-key (kbd "C-f") #'isearch-forward)
