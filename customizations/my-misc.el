@@ -1,5 +1,5 @@
 
-(setq flycheck-idle-change-delay 1)1
+(setq flycheck-idle-change-delay 1)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+#name : describe
+#key  : dscr
+# --
+describe("$1",()=>{
+  $2           
+});

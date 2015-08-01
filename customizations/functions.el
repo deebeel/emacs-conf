@@ -2,7 +2,13 @@
 			"~/.emacs.d/my-snippets/"
 			(concat "~/.emacs.d/elpa/"
 				(car (cl-remove-if-not #'(lambda (x) (string-match "yasnippet" x))
-                                                       (directory-files "~/.emacs.d/elpa"))) "/snippets")))
+                                         (directory-files "~/.emacs.d/elpa"))) "/snippets")))
+(defun append-semicolon ()
+  (interactive)
+  (save-excursion
+    (end-of-line)
+    (insert ";")))
+
 (defun cut-line-or-region ()
   "Cut the current line if a region is not selected"
   (interactive)

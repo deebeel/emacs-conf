@@ -5,8 +5,8 @@
             (subword-mode t)
             (highlight-indentation-current-column-mode t)
             (flycheck-mode t)
-            (define-key coffee-mode-map "\C-j" 'coffee-newline-and-indent)
             (setq coffee-cleanup-whitespace nil)))
+
 
 
 

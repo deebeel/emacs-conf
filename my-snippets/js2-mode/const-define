@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : const-define
+#key  : cdef
+# --
+const $1 = $2;

@@ -1,10 +1,9 @@
-(yas-global-mode t)
+(setq tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
 (rainbow-delimiters-mode t)
-(smartparens-global-mode t)
-(show-paren-mode 1)
-(global-hl-line-mode 1)
-(global-company-mode)
+(show-paren-mode t)
+(global-hl-line-mode t)
+(global-company-mode t)
 (setq company-idle-delay 0.1)
 (setq create-lockfiles nil)
 (setq make-backup-files nil)
@@ -18,6 +17,7 @@
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
 
+(yas-global-mode t)
 
 
 

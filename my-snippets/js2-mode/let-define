@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : let-define
+#key  : ldef
+# --
+let $1 = $2;

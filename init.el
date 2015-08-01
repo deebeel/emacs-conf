@@ -22,7 +22,6 @@
     neotree
     magit
     whitespace
-    smartparens
     dash
     rust-mode
     racer
@@ -50,24 +49,25 @@
 ;;;;
 ;; Customization
 ;;;;
+;;;;
 
 ;; Add a directory to our load path so that when you `load` things
 ;; below, Emacs knows where to look for the corresponding file.
 (add-to-list 'load-path "~/.emacs.d/customizations")
 ;; Sets up exec-path-from-shell so that Emacs will use the correct
 ;; environment variables
-(load "shell-integration")
-(load "navigation")
-(load "ui")
 
-(load "misc")
-(load "setup-js") 
-(load "setup-rust")
-(load "setup-json")
-(load "setup-coffee")
-(load "editing")
-(load "functions")
-(load "keybinding")
+(load-library "shell-integration")
+(load-library "navigation")
+(load-library "ui")
+(load-library "my-misc")
+(load-library "setup-js") 
+(load-library "setup-rust")
+(load-library "setup-json")
+(load-library "setup-coffee")
+(load-library "editing")
+(load-library "functions")
+(load-library "keybinding")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -76,7 +76,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (js2-refactor company-tern js2-mode json-mode coffee-mode cider clojure-mode-extra-font-locking clojure-mode flycheck-rust racer rust-mode smartparens magit neotree company s rainbow-delimiters projectile smex ido-ubiquitous flycheck highlight-indentation nlinum expand-region key-chord))))
+    (markdown-mode js2-refactor company-tern js2-mode json-mode coffee-mode cider clojure-mode-extra-font-locking clojure-mode flycheck-rust racer rust-mode smartparens magit neotree company s rainbow-delimiters projectile smex ido-ubiquitous flycheck highlight-indentation nlinum expand-region key-chord))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
