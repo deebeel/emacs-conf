@@ -10,9 +10,7 @@
 
 
 (define-key key-translation-map [tab] nil)
-(add-hook 'server-visit-hook  (lambda ()
-				(keyboard-translate ?\C-i ?\H-i)))
-
+(define-key key-translation-map [?\C-i] [?\H-i])  
 (global-set-key (kbd "H-i") 'previous-line)
 (define-key key-translation-map [?\C-h] [?\C-?])
 (global-set-key (kbd "s-e") #'er/expand-region)
