@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
-#name : anon-function
+#name : anononimus-function
 #key : af
 # --
-($1) => {
-    $2
+($1)=> {
+   $2    
 }

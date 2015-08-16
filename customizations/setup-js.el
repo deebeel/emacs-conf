@@ -15,10 +15,14 @@
 
 (add-hook 'js2-mode-hook (lambda ()
 			   (rainbow-delimiters-mode t)
-                           (tern-mode t)
 			   (js2-refactor-mode t)
+                           (tern-mode t)
                            (subword-mode t)
                            (flycheck-mode t)))
+
+(eval-after-load "tern" #'(progn
+                            (setq company-tern-property-marker "")
+                            (setq company-tern-meta-as-single-line t)))
 
 (eval-after-load "company" (lambda ()
 				  (add-to-list 'company-backends 'company-tern)))

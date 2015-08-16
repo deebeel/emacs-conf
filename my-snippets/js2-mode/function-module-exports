@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : function-module-exports
+#key  : fme
+# --
+module.exports = $1;

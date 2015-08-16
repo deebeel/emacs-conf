@@ -2,6 +2,6 @@
 #name : describe
 #key  : dscr
 # --
-describe("$1",()=>{
+describe("$1", ()=>{
   $2           
 });

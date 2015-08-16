@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+#name : prototype
+#key : ptt
+# --
+`(yank)`.prototype.${2:$(yas-text)} = function $2($3){
+    $4
+}

@@ -10,7 +10,6 @@
   '(
     key-chord
     expand-region
-    nlinum
     markdown-mode
     highlight-indentation
     flycheck
@@ -58,17 +57,20 @@
 ;; Sets up exec-path-from-shell so that Emacs will use the correct
 ;; environment variables
 
-(load-library "shell-integration")
-(load-library "navigation")
-(load-library "ui")
-(load-library "my-misc")
-(load-library "setup-js") 
-(load-library "setup-rust")
-(load-library "setup-json")
-(load-library "setup-coffee")
-(load-library "editing")
-(load-library "functions")
-(load-library "keybinding")
+(defun setup ()
+  (load-library "shell-integration")
+  (load-library "navigation")
+  (load-library "ui")
+  (load-library "my-misc")
+  (load-library "setup-js") 
+  (load-library "setup-rust")
+  (load-library "setup-json")
+  (load-library "setup-coffee")
+  (load-library "editing")
+  (load-library "functions")
+  (load-library "keybinding"))
+
+(add-hook 'after-init-hook #'(lambda () (load-library "keybinding")))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -77,7 +79,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (markdown-mode smex smartparens rainbow-delimiters racer projectile nlinum neotree magit key-chord json-mode js2-refactor ido-ubiquitous highlight-indentation flycheck-rust expand-region company-tern coffee-mode clojure-mode-extra-font-locking cider))))
+    (paredit markdown-mode smex smartparens rainbow-delimiters racer projectile nlinum neotree magit key-chord json-mode js2-refactor ido-ubiquitous highlight-indentation flycheck-rust expand-region company-tern coffee-mode clojure-mode-extra-font-locking cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

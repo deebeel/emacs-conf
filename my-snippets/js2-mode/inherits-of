@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+#name : inherits-of
+#key : ihof
+# --
+
+function $1(){
+    $2.call(this);
+}
+
+util.inherits($1, $2);
+
+$0

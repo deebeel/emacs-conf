@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : named-module-exports
+#key  : nme
+# --
+module.exports.${1:$(yas-text)} = ${1:sys};

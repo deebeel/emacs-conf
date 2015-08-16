@@ -8,13 +8,14 @@
                                (define-key company-mode-map (kbd "C-SPC") #'company-select-next)
                                (define-key company-mode-map (kbd "S-SPC") #'company-select-previous)))
 
-(eval-after-load "keybinding" #'(progn
-                                  (setq local-function-key-map (delq '(kp-tab . [9]) function-key-map))
-                                  (keyboard-translate ?\C-i ?\H-i)
-                                  (global-set-key (kbd "H-i") 'previous-line)
-                                  (setq local-function-key-map (delq '(kp-tab . [?\C-m]) function-key-map))
-                                  (keyboard-translate ?\C-m ?\H-m)
-                                  (global-set-key (kbd "H-m") #'er/expand-region)))
+
+(define-key key-translation-map [tab] nil)
+(add-hook 'server-visit-hook  (lambda ()
+				(keyboard-translate ?\C-i ?\H-i)))
+
+(global-set-key (kbd "H-i") 'previous-line)
+(define-key key-translation-map [?\C-h] [?\C-?])
+(global-set-key (kbd "s-e") #'er/expand-region)
 
 
 (global-set-key (kbd "C-k") 'next-line)
@@ -24,17 +25,15 @@
 (global-set-key (kbd "M-l") 'forward-word)
 
 
-;; (setq local-function-key-map (delq '(kp-tab . [?\M-\S-f]) function-key-map))
-;; (keyboard-translate ?\M-\S-f ?\H-f)
 (global-set-key (kbd "s-q")  #'indent-buffer)
 
-(key-chord-define-global "pp" #'yas-ido-expand) 
+(global-set-key (kbd "s-o") #'yas-ido-expand)
 (global-set-key (kbd "C-o") #'ido-find-file)
 (global-set-key (kbd "C-f") #'isearch-forward)
 (global-set-key (kbd "C-S-f") #'isearch-backward)
 (global-set-key (kbd "<f8>") #'delete-this-buffer-and-file)
-(global-set-key (kbd "C-w") #'cut-line-or-region)
-(global-set-key (kbd "M-w") #'copy-line-or-region)
+(global-set-key (kbd "s-x") #'cut-line-or-region)
+(global-set-key (kbd "s-d") #'copy-line-or-region)
 (global-set-key (kbd "C-z") #'undo)
 (global-set-key (kbd "C-v") #'yank)
 (global-set-key (kbd "C-s") #'save-buffer)
@@ -55,7 +54,6 @@
 (global-set-key (kbd "S-C-<right>") #'enlarge-window-horizontally)
 (global-set-key (kbd "S-C-<down>") #'shrink-window)
 (global-set-key (kbd "S-C-<up>") #'enlarge-window)
-(global-set-key (kbd "C-h") #'backward-delete-char)
 (global-set-key (kbd "M-d") #'kill-word)
 (global-set-key (kbd "M-h") #'backward-kill-word)
 (global-set-key (kbd "C-d") #'delete-char)

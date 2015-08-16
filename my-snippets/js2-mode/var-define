@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+#name : var-define
+#key  : vdef
+# --
+var $1 = $2;
+$0

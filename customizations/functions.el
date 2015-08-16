@@ -1,13 +1,17 @@
-(setq yas-snippet-dirs (list
-			"~/.emacs.d/my-snippets/"
-			(concat "~/.emacs.d/elpa/"
-				(car (cl-remove-if-not #'(lambda (x) (string-match "yasnippet" x))
-                                         (directory-files "~/.emacs.d/elpa"))) "/snippets")))
 (defun append-semicolon ()
   (interactive)
   (save-excursion
     (end-of-line)
     (insert ";")))
+
+
+(defun kill-expand ()
+  (interactive)
+  (progn
+    (er/expand-region 1)
+    (kill-region (region-beginning) (region-end))))
+
+
 
 (defun cut-line-or-region ()
   "Cut the current line if a region is not selected"
@@ -15,6 +19,8 @@
   (progn (if (use-region-p)
              (kill-region (region-beginning) (region-end) t)
            (kill-region (line-beginning-position) (line-beginning-position 2)))))
+
+
 (defun copy-line-or-region ()
   "Copy the current line if a region is not selected"
   (interactive)
@@ -26,6 +32,27 @@
                     (setq p2 (line-end-position)))))
     (kill-ring-save p1 p2)))
 
+(defun check-expansion ()
+  (save-excursion
+    (if (looking-at "\\_>") t
+      (backward-char 1)
+      (if (looking-at "\\.") t
+        (backward-char 1)
+        (if (looking-at "->") t nil)))))
+
+(defun do-yas-expand ()
+  (let ((yas/fallback-behavior 'return-nil))
+    (yas/expand)))
+
+(defun my-tab-indent-or-complete ()
+  (interactive)
+  (if (minibufferp)
+      (minibuffer-complete)
+    (if (or (not yas-minor-mode)
+            (null (do-yas-expand)))
+        (if (check-expansion)
+            (company-complete-common)
+          (indent-for-tab-command)))))
 
 
 (defun yas-ido-expand ()
