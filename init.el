@@ -57,20 +57,18 @@
 ;; Sets up exec-path-from-shell so that Emacs will use the correct
 ;; environment variables
 
-(defun setup ()
-  (load-library "shell-integration")
-  (load-library "navigation")
-  (load-library "ui")
-  (load-library "my-misc")
-  (load-library "setup-js") 
-  (load-library "setup-rust")
-  (load-library "setup-json")
-  (load-library "setup-coffee")
-  (load-library "editing")
-  (load-library "functions")
-  (load-library "keybinding"))
+(load-library "shell-integration")
+(load-library "navigation")
+(load-library "ui")
+(load-library "my-misc")
+(load-library "setup-js") 
+(load-library "setup-rust")
+(load-library "setup-json")
+(load-library "setup-coffee")
+(load-library "editing")
+(load-library "functions")
+(load-library "keybinding")
 
-(add-hook 'after-init-hook #'(lambda () (load-library "keybinding")))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
