@@ -44,10 +44,12 @@
   (let ((yas/fallback-behavior 'return-nil))
     (yas/expand)))
 
+(setq ido-enable-flex-matching nil)
+
 (defun my-tab-indent-or-complete ()
   (interactive)
   (if (minibufferp)
-      (minibuffer-complete)
+      (ido-complete)
     (if (or (not yas-minor-mode)
             (null (do-yas-expand)))
         (if (check-expansion)

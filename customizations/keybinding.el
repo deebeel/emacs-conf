@@ -13,8 +13,13 @@
 (define-key key-translation-map [?\C-i] [?\H-i])  
 (global-set-key (kbd "H-i") 'previous-line)
 (define-key key-translation-map [?\C-h] [?\C-?])
-(global-set-key (kbd "s-e") #'er/expand-region)
+(global-set-key (kbd "M-w") #'er/expand-region)
+(define-key projectile-mode-map [?\s-d] 'projectile-find-dir)
+(define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
+(define-key projectile-mode-map [?\s-o] 'projectile-find-file)
+(define-key projectile-mode-map [?\s-g] 'projectile-grep)
 
+(global-set-key [tab] #'my-tab-indent-or-complete)
 
 (global-set-key (kbd "C-k") 'next-line)
 (global-set-key (kbd "C-l") 'forward-char)
@@ -22,16 +27,19 @@
 (global-set-key (kbd "M-j") 'backward-word)
 (global-set-key (kbd "M-l") 'forward-word)
 
-
 (global-set-key (kbd "s-q")  #'indent-buffer)
-
-(global-set-key (kbd "s-o") #'yas-ido-expand)
+(global-set-key (kbd "M-p") #'yas-ido-expand)
 (global-set-key (kbd "C-o") #'ido-find-file)
+
+
 (global-set-key (kbd "C-f") #'isearch-forward)
+(define-key isearch-mode-map (kbd "C-f") #'isearch-repeat-forward)
 (global-set-key (kbd "C-S-f") #'isearch-backward)
+(define-key isearch-mode-map (kbd "C-S-f") #'isearch-repeat-backward)
+
 (global-set-key (kbd "<f8>") #'delete-this-buffer-and-file)
-(global-set-key (kbd "s-x") #'cut-line-or-region)
-(global-set-key (kbd "s-d") #'copy-line-or-region)
+(global-set-key (kbd "s-k") #'cut-line-or-region)
+(global-set-key (kbd "s-j") #'copy-line-or-region)
 (global-set-key (kbd "C-z") #'undo)
 (global-set-key (kbd "C-v") #'yank)
 (global-set-key (kbd "C-s") #'save-buffer)

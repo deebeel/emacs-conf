@@ -1,5 +1,5 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
+(require 'tern-lint)
 
 (eval-after-load "js2-mode" (lambda ()
 			      (require 'js2-refactor)
@@ -25,13 +25,10 @@
                             (setq company-tern-meta-as-single-line t)))
 
 (eval-after-load "company" (lambda ()
-				  (add-to-list 'company-backends 'company-tern)))
+                             (add-to-list 'company-backends 'company-tern)))
 (eval-after-load "flycheck" (lambda ()
-                             (progn
-                               (flycheck-add-mode 'javascript-eslint 'js2-mode)
-                               (setq-default flycheck-disabled-checkers
-                                             (append flycheck-disabled-checkers
-                                                     '(javascript-jshint))))))
+                              (progn
+                                (flycheck-add-mode 'javascript-eslint 'js2-mode))))
 
 (setq js-indent-level 2)
 
