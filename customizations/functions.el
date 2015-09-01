@@ -4,7 +4,9 @@
     (end-of-line)
     (insert ";")))
 
-
+(defun delete-tern-process ()
+  (interactive)
+  (delete-process "Tern"))
 (defun kill-expand ()
   (interactive)
   (progn
@@ -46,6 +48,12 @@
 
 (setq ido-enable-flex-matching nil)
 
+(defun indent-or-complete ()
+  (interactive)
+  (if (looking-at "\\_>")
+      (company-complete-common)
+    (indent-according-to-mode)))
+
 (defun my-tab-indent-or-complete ()
   (interactive)
   (if (minibufferp)
@@ -54,7 +62,7 @@
             (null (do-yas-expand)))
         (if (check-expansion)
             (company-complete-common)
-          (indent-for-tab-command)))))
+          (indent-or-complete)))))
 
 
 (defun yas-ido-expand ()
@@ -83,12 +91,13 @@
   (interactive)
   (indent-region (point-min) (point-max)))
 
+
 (defun duplicate-current-line (&optional n)
   (interactive "p")
   (save-excursion
     (let ((nb (or n 1))
           (current-line (thing-at-point 'line)))
-      ;; when on last line, insert a newline first
+      ;; when       on       last line,  insert a newline first
       (when (or (= 1 (forward-line 1)) (eq (point) (point-max)))
         (insert "\n"))
       (while (> n 0)

@@ -1,11 +1,14 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(require 'tern-lint)
 
 (eval-after-load "js2-mode" (lambda ()
 			      (require 'js2-refactor)
                               (key-chord-define js2-mode-map ";;" #'append-semicolon) 
 			      (js2r-add-keybindings-with-prefix "s-r")
                               (define-key js2-mode-map (kbd "M-j") nil)
+                              (setq js2-auto-indent-p t)
+                              (setq js2-bounce-indent-p t)
+                              (setq js2-enter-indents-newline t)
+                              (setq js2-highlight-level 3)
                               (setq js2-mode-show-parse-errors nil)
                               (setq js2-mode-show-strict-warnings nil)
 			      (setq js2-include-browser-externs nil)
@@ -26,11 +29,9 @@
 
 (eval-after-load "company" (lambda ()
                              (add-to-list 'company-backends 'company-tern)))
-(eval-after-load "flycheck" (lambda ()
-                              (progn
-                                (flycheck-add-mode 'javascript-eslint 'js2-mode))))
 
-(setq js-indent-level 2)
+(eval-after-load "flycheck" (lambda ()
+                              (flycheck-add-mode 'javascript-eslint 'js2-mode)))
 
 
 

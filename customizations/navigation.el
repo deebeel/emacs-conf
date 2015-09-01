@@ -41,10 +41,13 @@
 
 ;; This enables ido in all contexts where it could be useful, not just
 ;; for selecting buffer and file names
-(ido-ubiquitous-mode 1)
-
+(ido-ubiquitous-mode t)
+(ido-everywhere t)
+(flx-ido-mode t)
+;; disable ido faces to see flx highlights.
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
 ;; Shows a list of buffers
-(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 
 ;; Enhances M-x to allow easier execution of commands. Provides
@@ -52,7 +55,6 @@
 ;; http://www.emacswiki.org/emacs/Smex
 (setq smex-save-file (concat user-emacs-directory ".smex-items"))
 (smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
 
 ;; projectile everywhere!
 (projectile-global-mode)

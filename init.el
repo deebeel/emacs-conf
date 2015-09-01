@@ -8,6 +8,7 @@
 (setq large-file-warning-threshold 100000000)
 (defvar required-packages  
   '(
+    flx-ido
     key-chord
     expand-region
     markdown-mode
@@ -77,7 +78,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (paredit markdown-mode smex smartparens rainbow-delimiters racer projectile nlinum neotree magit key-chord json-mode js2-refactor ido-ubiquitous highlight-indentation flycheck-rust expand-region company-tern coffee-mode clojure-mode-extra-font-locking cider))))
+    (tern-auto-complete auto-complete web-beautify flx-ido paredit markdown-mode smex smartparens rainbow-delimiters racer projectile nlinum neotree magit key-chord json-mode js2-refactor ido-ubiquitous highlight-indentation flycheck-rust expand-region company-tern coffee-mode clojure-mode-extra-font-locking cider))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
